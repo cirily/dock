@@ -2,7 +2,7 @@
 
 CutefishOS application dock.
 
-## Dependencies
+## Dependencies (For Arch)
 
 ```shell
 sudo pacman -S gcc cmake qt5-base qt5-quickcontrols2 kwindowsystem
@@ -13,6 +13,8 @@ You also need [`fishui`](https://github.com/cutefishos/fishui) and [`libcutefish
 ## Build and Install
 
 ```
+git clone https://github.com/cirily/dock.git
+cd dock
 mkdir build
 cd build
 cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr ..
