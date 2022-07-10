@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 CutefishOS Team.
+ * Copyright (C) 2021 Piscesys Team.
  * Author:     rekols <revenmartin@gmail.com>
  *
  * This program is free software: you can redistribute it and/or modify
@@ -45,17 +45,17 @@ void TrashManager::moveToTrash(QList<QUrl> urls)
         paths.append(url.toLocalFile());
     }
 
-    QProcess::startDetached("cutefish-filemanager", QStringList() << "--move-to-trash" << paths);
+    QProcess::startDetached("pisces-filemanager", QStringList() << "--move-to-trash" << paths);
 }
 
 void TrashManager::emptyTrash()
 {
-    QProcess::startDetached("cutefish-filemanager", QStringList() << "-e");
+    QProcess::startDetached("pisces-filemanager", QStringList() << "-e");
 }
 
 void TrashManager::openTrash()
 {
-    QProcess::startDetached("cutefish-filemanager", QStringList() << "trash:///");
+    QProcess::startDetached("pisces-filemanager", QStringList() << "trash:///");
 }
 
 void TrashManager::onDirectoryChanged()

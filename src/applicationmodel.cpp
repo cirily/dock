@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright (C) 2021 CutefishOS Team.
+ * Copyright (C) 2021 Piscesys Team.
  *
  * Author:     rekols <revenmartin@gmail.com>
  *
@@ -346,16 +346,16 @@ int ApplicationModel::indexOf(const QString &id)
 
 void ApplicationModel::initPinnedApplications()
 {
-    QSettings settings(QSettings::UserScope, "cutefishos", "dock_pinned");
-    QSettings systemSettings("/etc/cutefish-dock-list.conf", QSettings::IniFormat);
+    QSettings settings(QSettings::UserScope, "piscesys", "dock_pinned");
+    QSettings systemSettings("/etc/pisces-dock-list.conf", QSettings::IniFormat);
     QSettings *set = (QFile(settings.fileName()).exists()) ? &settings
                                                            : &systemSettings;
     QStringList groups = set->childGroups();
 
     // Launcher
     ApplicationItem *item = new ApplicationItem;
-    item->id = "cutefish-launcher";
-    item->exec = "cutefish-launcher";
+    item->id = "pisces-launcher";
+    item->exec = "pisces-launcher";
     item->iconName = "qrc:/images/launcher.svg";
     item->visibleName = tr("Launcher");
     item->fixed = true;
@@ -415,7 +415,7 @@ void ApplicationModel::initPinnedApplications()
 
 void ApplicationModel::savePinAndUnPinList()
 {
-    QSettings settings(QSettings::UserScope, "cutefishos", "dock_pinned");
+    QSettings settings(QSettings::UserScope, "piscesys", "dock_pinned");
     settings.clear();
 
     int index = 0;
@@ -454,7 +454,7 @@ void ApplicationModel::onWindowAdded(quint64 wid)
     const QString id = info.value("id").toString();
 
     // Skip...
-    if (id == "cutefish-launcher")
+    if (id == "pisces-launcher")
         return;
 
     QString desktopPath = m_iface->desktopFilePath(wid);
